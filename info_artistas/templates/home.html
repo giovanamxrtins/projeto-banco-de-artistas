@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block 'conteudo' %}
+
+<div class="container">
+    <div class="row">
+
+        {% for artista in infos_artistas %}
+            <div class="col-md">
+                <br>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{artista.nome}}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{artista.email}}</h6>
+                      <h6 class="card-subtitle mb-2 text-muted">{{artista.tipo_documento}}: {{artista.documento}}</h6>
+                      <p class="card-text">{{artista.categoria}}</p>
+                      <a href= "{% url 'editar_artistas' artista.id %}" class="btn btn-info">Editar</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
